@@ -21,9 +21,11 @@ app.get { req in
 
 app.post("gh-webhook") { req in
     guard
-        let stars = req.data["repository", "stargazers_count"].int,
-        let repo = req.data["repository", "name"]?.string
-        else { return Response(status: .ok) } // ok to gh ping
+        let stars = req.data["repository", "stargazers_count"].int
+        else { return Response(status: .ok, text: "couldn't find stars: \(req)") }
+    guard
+        let repo = req.data["repository", "name"].string
+        else { return Response(status: .ok, text: "unable to find name: \(req)") } // ok to gh ping
     stargazers = stars
 
     var msg = JSON.object([:])
