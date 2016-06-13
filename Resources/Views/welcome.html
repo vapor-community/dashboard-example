@@ -1,17 +1,78 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Vapor</title>
-	<link rel="stylesheet" href="styles/app.css">
-</head>
-<body>
-
-	<div align='center'>
-	<img src="images/vapor-logo.png">
-	</div>
-
-	<footer class="main">
-		<p>Powered by Swift. Built by <a href="http://qutheory.io">Vapor Team</a>.</p>
-	</footer>
-</body>
-</html>
+<!doctype html>
+<meta charset=utf-8>
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<meta name=description content="A Dashboard showing statistics of the Vapor project.">
+<meta name=viewport content="width=device-width,initial-scale=1"><title>Vapor Dashboard</title>
+<meta name=msapplication-tap-highlight content=no>
+<link rel=manifest href=manifest.json>
+<meta name=mobile-web-app-capable content=yes>
+<meta name=application-name content="Vapor Dashboard">
+<link rel=icon sizes=192x192 href=images/chrome-touch-icon-192x192.png>
+<meta name=apple-mobile-web-app-capable content=yes>
+<meta name=apple-mobile-web-app-status-bar-style content=black>
+<meta name=apple-mobile-web-app-title content="Web Starter Kit">
+<link rel=apple-touch-icon href=images/apple-touch-icon.png>
+<meta name=msapplication-TileImage content=images/ms-touch-icon-144x144-precomposed.png>
+<meta name=msapplication-TileColor content=#2F3BA2>
+<meta name=theme-color content=#94A9D1>
+<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700,300" rel=stylesheet>
+<link rel=stylesheet href=styles/main.css>
+<div class=top-bar><h1 class="h1 top-bar__title"><img class=top-bar__logo src=images/logo.svg alt=Vapor> Vapor</h1>
+    <div class=top-bar__links><a href=https://www.qutheory.io target=_blank>Vapor</a>
+        <a href=https://www.github.com/qutheory/vapor target=_blank>Github</a></div>
+</div>
+<div class=content>
+    <div class="row row--fluid">
+        <div class="small-12 columns">
+            <div class="row row--fluid">
+                <div class="small-12 medium-8 columns">
+                    <div class=dashboard-panel>
+                        <div class=dashboard-panel__title><p>Live Visitors</div>
+                        <div class="dashboard-panel__content collapse">
+                            <div id=map class=visitor-map></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-12 medium-4 columns stretch-items">
+                    <div class="dashboard-panel center-vertical">
+                        <div class=dashboard-panel__content><h1 class=count id=starGazers>Stars:
+                            <span class=output>...</span></h1>
+                            <h1 class=count id=watchers>Watchers: <span class=output>...</span></h1></div>
+                    </div>
+                    <div class="dashboard-panel center-vertical no-m-t">
+                        <div class=dashboard-panel__content>
+                            <h2 class=count id=latestRelease>Latest release: <span class=output>...</span>
+                                <small><span class=dateOutput>...</span></small>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row--fluid">
+        <div class="small-12 columns">
+            <div class="dashboard-panel no-m-t">
+                <div class=dashboard-panel__title><p>Commits pr. Week</div>
+                <div class=dashboard-panel__content>
+                    <canvas id=commits></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIX7YHap0o7ZIS1-BZsRpki7-y75ZmXf4"></script>
+<script src=scripts/moment.min.js></script>
+<script src=scripts/main.min.js></script>
+<script>(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-50813164-18', 'auto');
+ga('send', 'pageview');</script>
